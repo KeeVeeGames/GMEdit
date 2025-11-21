@@ -55,7 +55,7 @@ import tools.IntDictionary;
 	//
 	public function setAnnotations(arr:Array<AceAnnotation>):Void;
 	public function clearAnnotations():Void;
-	@:native("$annotations") public var __annotations:IntDictionary<AceAnnotationPerRow>;
+	@:native("$annotations") public var __annotations:IntDictionary<AceAnnotation>;
 	//
 	public function addMarker(range:Dynamic, style:String, kind:String):AceMarker;
 	public function addDynamicMarker<T:IAceDynamicMarker>(marker:T, ?inFront:Bool):T;

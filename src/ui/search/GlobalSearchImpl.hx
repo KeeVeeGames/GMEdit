@@ -1,4 +1,6 @@
 package ui.search;
+import ace.extern.AceAnnotation;
+import ace.extern.AceAnnotation.AceAnnotationPerRow;
 import ace.extern.AcePos;
 import file.kind.gml.KGmlSearchResults;
 import gml.file.GmlFile;
@@ -9,6 +11,7 @@ import ui.search.GlobalSeachData;
 import gml.GmlVersion;
 import gml.Project;
 import parsers.GmlReader;
+import parsers.linter.GmlLinter;
 import synext.GmlExtLambda;
 import haxe.Constraints.Function;
 import js.lib.RegExp;
@@ -87,6 +90,19 @@ class GlobalSearchImpl {
 		var lambdaGml:String = null;
 		pj.search(function(name:String, path:String, code:String) {
 			if (!checkLibRes && pj.libraryResourceMap[name]) return isRepl ? code : null;
+
+			var kd = gml.file.GmlFileKindTools.detect(path);
+			var gmlfile = new GmlFile(name, path, kd.kind, kd.data);
+			GmlLinter.runFor(gmlfile.codeEditor);
+			var session = gmlfile.codeEditor.session;
+			session.__annotations.forEach(function(index:Int, annotation:AceAnnotation) {
+				var type = annotation.type;
+				var text = annotation.text;
+				var result = '\n\n// $type in @[$name]:\n$text';
+				results += result;
+			});
+			gmlfile.close();
+			
 			var lambdaPre:GmlExtLambdaPre;
 			if (canLambda) {
 				lambdaPre = GmlExtLambda.preInit(pj);
