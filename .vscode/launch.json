@@ -5,7 +5,7 @@
             "type": "node",
             "request": "launch",
             "preLaunchTask": "build", 
-            "runtimeExecutable": "${workspaceFolder}/bin/electron"
+            "runtimeExecutable": "${workspaceFolder}/bin/GMEdit"
         },
         {
             "name":"Debug",

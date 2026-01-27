@@ -1,6 +1,6 @@
 @echo OFF
-IF EXIST "./bin/editor.exe" (
-  START ./bin/editor.exe --remote-debugging-port=8315
+IF EXIST "./bin/GMEdit.exe" (
+  START ./bin/GMEdit.exe --remote-debugging-port=8315
 ) ELSE (
 	IF EXIST "./bin/electron.exe" (
 	  START ./bin/electron.exe --remote-debugging-port=8315
