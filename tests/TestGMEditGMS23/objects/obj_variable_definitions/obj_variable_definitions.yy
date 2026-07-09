@@ -47,6 +47,7 @@
         "GMAnimCurve",
         " GMFont",
         " GMObject",
+        " GMParticleSystem",
         " GMPath",
         " GMRoom",
         " GMScript",

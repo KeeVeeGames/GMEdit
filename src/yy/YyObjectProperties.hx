@@ -51,36 +51,6 @@ class YyObjectProperties {
 		for (pair in assetTypes) dict.set(pair.name, pair.flag);
 		return dict;
 	})();
-	static var allAssetTypes23:Array<String>;
-	public static function isAllAssetTypes23(filters:Array<String>):Bool {
-		var allTypes = allAssetTypes23;
-		return (filters.length == allTypes.length
-			&& filters.filter((s) -> (allTypes.indexOf(s) < 0)).length == 0
-		);
-	}
-	static var assetTypeMap23:Dictionary<String> = (function() {
-		var dict = new Dictionary<String>();
-		var all = [];
-		function add(a:String, b:String):Void {
-			all.push(a);
-			dict[a] = b;
-			dict[b] = a;
-		}
-		add("GMAnimCurve", "anim_curve");
-		add("GMFont", "font");
-		add("GMObject", "object");
-		add("GMPath", "path");
-		add("GMRoom", "room");
-		add("GMScript", "script");
-		add("GMSequence", "sequence");
-		add("GMShader", "shader");
-		add("GMSound", "sound");
-		add("GMSprite", "sprite");
-		add("GMTileSet", "tileset");
-		add("GMTimeline", "timeline");
-		allAssetTypes23 = all;
-		return dict;
-	})();
 	//
 	private static var rxLString = new RegExp("^(?:@'[^']*?'|@\"[^\"]*?\")$");
 	private static var rxJSONish = new RegExp("^[-\\d.\"]");
@@ -204,8 +174,8 @@ class YyObjectProperties {
 					} else {
 						var filters:Array<String> = prop.filters;
 						for (i => v in filters) filters[i] = NativeString.trimBoth(v);
-						var isAll = isAllAssetTypes23(filters);
-						var atm = assetTypeMap23;
+						var isAll = YyTools.isAllAssetTypes23(filters);
+						var atm = YyTools.assetTypeMap23;
 						if (!isAll) {
 							out += "<";
 							var found = 0;
@@ -450,11 +420,11 @@ class YyObjectProperties {
 							if (params != null) {
 								filters = [];
 								for (param in params) switch (param) {
-									case Ident(s): filters.push(assetTypeMap23.defget(s, s));
+									case Ident(s): filters.push(YyTools.assetTypeMap23.defget(s, s));
 									case Number(0): {};
 									default: throw 'Expected an asset type, got $param';
 								}
-							} else filters = allAssetTypes23.copy();
+							} else filters = YyTools.allAssetTypes23.copy();
 							// replicating 2.3.0/2.3.1 bugs:
 							for (i => v in filters) if (i > 0) filters[i] = " " + v;
 							//
