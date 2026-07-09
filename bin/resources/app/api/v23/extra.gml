@@ -521,14 +521,10 @@ point?:flexpanel_unit_type
 percent?:flexpanel_unit_type
 auto?:flexpanel_unit_type
 
-flexpanel_unit#:flexpanel_unit_enum
-
 ??flexpanel_direction_enum
 inherit?:flexpanel_direction_type
 LTR?:flexpanel_direction_type
 RTL?:flexpanel_direction_type
-
-flexpanel_direction#:flexpanel_direction_enum
 
 ??flexpanel_layout
 left?:number
@@ -550,50 +546,42 @@ marginBottom?:number
 
 ??flexpanel_justify_enum
 start?:flexpanel_justify_type
-flex_end?:flexpanel_justify_type
 center?:flexpanel_justify_type
+flex_end?:flexpanel_justify_type
 space_between?:flexpanel_justify_type
 space_around?:flexpanel_justify_type
 space_evenly?:flexpanel_justify_type
 
-flexpanel_justify#:flexpanel_justify_enum
-
 ??flexpanel_align_enum
-stretch?:flexpanel_align_type
-flex_start?:flexpanel_align_type
-flex_end?:flexpanel_align_type
-center?:flexpanel_align_type
-baseline?:flexpanel_align_type
-
-flexpanel_align#:flexpanel_align_enum
+auto?#:flexpanel_align_type
+flex_start?#:flexpanel_align_type
+center?#:flexpanel_align_type
+flex_end?#:flexpanel_align_type
+stretch?#:flexpanel_align_type
+baseline?#:flexpanel_align_type
+space_between?#:flexpanel_align_type
+space_around?#:flexpanel_align_type
+space_evenly?#:flexpanel_align_type
 
 ??flexpanel_display_enum
 flex?:flexpanel_display_type
 none?:flexpanel_display_type
 
-flexpanel_display#:flexpanel_display_enum
-
 ??flexpanel_flex_direction_enum
 column?:flexpanel_flex_direction_type
-row?:flexpanel_flex_direction_type
 column_reverse?:flexpanel_flex_direction_type
+row?:flexpanel_flex_direction_type
 row_reverse?:flexpanel_flex_direction_type
-
-flexpanel_flex_direction#:flexpanel_flex_direction_enum
 
 ??flexpanel_wrap_enum
 no_wrap?:flexpanel_wrap_type
 wrap?:flexpanel_wrap_type
 reverse?:flexpanel_wrap_type
 
-flexpanel_wrap#:flexpanel_wrap_enum
-
 ??flexpanel_gutter_enum
-all_gutters?:flexpanel_gutter_type
-row?:flexpanel_gutter_type
 column?:flexpanel_gutter_type
-
-flexpanel_gutter#:flexpanel_gutter_enum
+row?:flexpanel_gutter_type
+all_gutters?:flexpanel_gutter_type
 
 ??flexpanel_edge_enum
 left?:flexpanel_edge_type
@@ -601,19 +589,15 @@ top?:flexpanel_edge_type
 right?:flexpanel_edge_type
 bottom?:flexpanel_edge_type
 start?:flexpanel_edge_type
-end?:flexpanel_edge_type
+_end?:flexpanel_edge_type
 horizontal?:flexpanel_edge_type
 vertical?:flexpanel_edge_type
 all_edges?:flexpanel_edge_type
 
-flexpanel_edge#:flexpanel_edge_enum
-
 ??flexpanel_position_enum
+static?:flexpanel_position
 relative?:flexpanel_position
 absolute?:flexpanel_position
-static?:flexpanel_position
-
-flexpanel_position_type#:flexpanel_position_enum
 
 ??colspace_enum
 room?:colspace_type
@@ -621,12 +605,5 @@ ui_view?:colspace_type
 ui_display?:colspace_type
 colspace_all?:colspace_type
 
-colspace#:colspace_enum
-
 ??texgroup_info
 sprites?:struct
-
-layer_type_unknown#:layer_type
-layer_type_room#:layer_type
-layer_type_ui_viewports#:layer_type
-layer_type_ui_display#:layer_type
