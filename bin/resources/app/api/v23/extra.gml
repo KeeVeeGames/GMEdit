@@ -327,7 +327,7 @@ xmax?:number
 ymin?:number
 ymax?:number
 distribution?:particle_distribution
-shape?:particle_shape
+shape?:particle_region_shape
 parttype?:particle_info
 delay_min?:number
 delay_max?:number
