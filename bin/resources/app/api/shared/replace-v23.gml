@@ -637,6 +637,7 @@ particle_exists(particles:particle_asset)->bool
 particle_get_info(particles:particle_asset)->particle_system_info
 
 part_system_create(?particles:particle_asset)->particle_system
+part_system_create_layer(layer:layer|string,persistent:bool,?partsys:particle_asset)->particle_system
 part_system_color(ind:particle_system,color:int,alpha:number)$->void
 part_system_colour(ind:particle_system,colour:int,alpha:number)£->void
 part_system_angle(ind:particle_system,angle:int)->void
