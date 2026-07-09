@@ -89,6 +89,8 @@ array_concat<T>(...arrays:T[])->T[]
 array_union<T>(...arrays:T[])->T[]
 array_intersection<T>(...arrays:T[])->T[]
 
+random_set_seed(seed:int, ?fix_range_bug:bool?)->void
+
 weak_ref_alive(weak_ref:weak_reference)->bool
 weak_ref_any_alive(array:weak_reference[],?index:int,?length:int)->bool
 
@@ -637,6 +639,7 @@ particle_exists(particles:particle_asset)->bool
 particle_get_info(particles:particle_asset)->particle_system_info
 
 part_system_create(?particles:particle_asset)->particle_system
+part_system_create_layer(layer:layer|string,persistent:bool,?partsys:particle_asset)->particle_system
 part_system_color(ind:particle_system,color:int,alpha:number)$->void
 part_system_colour(ind:particle_system,colour:int,alpha:number)£->void
 part_system_angle(ind:particle_system,angle:int)->void
@@ -802,6 +805,8 @@ buffer_error_general#:buffer_write_error
 buffer_error_out_of_space#:buffer_write_error
 buffer_error_invalid_type#:buffer_write_error
 
+gx_share(content:buffer|string, ?title:string?, ?text:string?, ?filename:string?)->void
+
 gp_axis_acceleration_x#:gamepad_button
 gp_axis_acceleration_y#:gamepad_button
 gp_axis_acceleration_z#:gamepad_button
@@ -866,6 +871,11 @@ layer_get_all()->layer[]
 
 layerelementtype_text#:layer_element_type
 
+layer_type_unknown#:layer_type
+layer_type_room#:layer_type
+layer_type_ui_viewports#:layer_type
+layer_type_ui_display#:layer_type
+
 layer_tilemap_set_colmask(tilemap_element_id:layer_tilemap,index:sprite)->int
 layer_tilemap_get_colmask(tilemap_element_id:layer_tilemap)->sprite
 
@@ -925,6 +935,8 @@ layer_sequence_y(sequence_element_id:layer_sequence,pos_y:number)->void
 layer_sequence_angle(sequence_element_id:layer_sequence,angle:number)->void
 layer_sequence_xscale(sequence_element_id:layer_sequence,xscale:number)->void
 layer_sequence_yscale(sequence_element_id:layer_sequence,yscale:number)->void
+layer_sequence_alpha(sequence_element_id:layer_sequence,alpha:number)->void
+layer_sequence_blend(sequence_element_id:layer_sequence,blend:int)->void
 layer_sequence_headpos(sequence_element_id:layer_sequence,position:number)->void
 layer_sequence_headdir(sequence_element_id:layer_sequence,direction:number)->void
 layer_sequence_pause(sequence_element_id:layer_sequence)->void
@@ -1475,7 +1487,7 @@ flexpanel_node_set_data(node:flexpanel_node, struct:struct)->void
 flexpanel_node_get_struct(node:flexpanel_node)->flexpanel_data
 flexpanel_node_get_measure_function(node:flexpanel_node)->function<width:number; width_type:int; height:number; height_type:int; struct>
 flexpanel_node_set_measure_function(node:flexpanel_node,mesaure_func:function<width:number; width_type:int; height:number; height_type:int; struct>)->void
-flexpanel_calculate_layout(node:flexpanel_node, width:number|undefined, height:number|undefined, direction:flexpanel_direction_type)->void
+flexpanel_calculate_layout(node:flexpanel_node, width:number|undefined, height:number|undefined, direction:flexpanel_direction_type, ?dirty:bool?)->void
 flexpanel_node_layout_get_position(node:flexpanel_node, ?relative:bool)->flexpanel_layout
 flexpanel_set_rounding_scale(scaleFactor:number)->void
 flexpanel_get_rounding_scale()->number
@@ -1512,7 +1524,7 @@ flexpanel_node_style_set_display(node:flexpanel_node, display:flexpanel_display_
 flexpanel_node_style_set_flex(node:flexpanel_node, flex:number)->void
 flexpanel_node_style_set_flex_grow(node:flexpanel_node, grow:number)->void
 flexpanel_node_style_set_flex_shrink(node:flexpanel_node, shrink:number)->void
-flexpanel_node_style_set_flex_basis(node:flexpanel_node, value:number, unit:flexpanel_unit_value)->void
+flexpanel_node_style_set_flex_basis(node:flexpanel_node, value:number, unit:flexpanel_unit_type)->void
 flexpanel_node_style_set_flex_direction(node:flexpanel_node, direction:flexpanel_flex_direction_type)->void
 flexpanel_node_style_set_flex_wrap(node:flexpanel_node, wrap:flexpanel_wrap_type)->void
 flexpanel_node_style_set_gap(node:flexpanel_node, gutter:flexpanel_gutter_type, size:number)->void
@@ -1529,3 +1541,26 @@ flexpanel_node_style_set_min_height(node:flexpanel_node, value:number, unit:flex
 flexpanel_node_style_set_max_height(node:flexpanel_node, value:number, unit:flexpanel_unit_type)->void
 flexpanel_node_style_set_width(node:flexpanel_node, width:number, unit:flexpanel_unit_type)->void
 flexpanel_node_style_set_height(node:flexpanel_node, height:number, unit:flexpanel_unit_type)->void
+
+
+flexpanel_unit#:flexpanel_unit_enum
+
+flexpanel_position_type#:flexpanel_position_enum
+
+flexpanel_justify#:flexpanel_justify_enum
+
+flexpanel_direction#:flexpanel_direction_enum
+
+flexpanel_gutter#:flexpanel_gutter_enum
+
+flexpanel_display#:flexpanel_display_enum
+
+flexpanel_flex_direction#:flexpanel_flex_direction_enum
+
+flexpanel_align#:flexpanel_align_enum
+
+flexpanel_wrap#:flexpanel_wrap_enum
+
+flexpanel_edge#:flexpanel_edge_enum
+
+colspace#:colspace_enum

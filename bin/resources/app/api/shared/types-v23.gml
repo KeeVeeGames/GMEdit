@@ -265,7 +265,7 @@ typedef flexpanel_data : struct;
 
 typedef flexpanel_unit_value : struct;
 
-feathername: Enum.flexpanel_unit_type
+feathername: Enum.flexpanel_unit
 typedef flexpanel_unit_type : uncompareable;
 
 feathername: Enum.flexpanel_direction
