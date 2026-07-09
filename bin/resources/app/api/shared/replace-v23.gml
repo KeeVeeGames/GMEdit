@@ -1513,7 +1513,7 @@ flexpanel_node_style_set_display(node:flexpanel_node, display:flexpanel_display_
 flexpanel_node_style_set_flex(node:flexpanel_node, flex:number)->void
 flexpanel_node_style_set_flex_grow(node:flexpanel_node, grow:number)->void
 flexpanel_node_style_set_flex_shrink(node:flexpanel_node, shrink:number)->void
-flexpanel_node_style_set_flex_basis(node:flexpanel_node, value:number, unit:flexpanel_unit_value)->void
+flexpanel_node_style_set_flex_basis(node:flexpanel_node, value:number, unit:flexpanel_unit_type)->void
 flexpanel_node_style_set_flex_direction(node:flexpanel_node, direction:flexpanel_flex_direction_type)->void
 flexpanel_node_style_set_flex_wrap(node:flexpanel_node, wrap:flexpanel_wrap_type)->void
 flexpanel_node_style_set_gap(node:flexpanel_node, gutter:flexpanel_gutter_type, size:number)->void
