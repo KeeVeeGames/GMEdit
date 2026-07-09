@@ -68,11 +68,12 @@ class KYyUnknown extends FileKind {
 		//
 		if (dir != null) {
 			var makeEl = true;
-			var kind = resType.substring(2).toLowerCase();
+			var kind = YyTools.kindOf23(resType);
 			switch (resType) {
 				case "GMSprite", "GMTileSet", "GMSound", "GMPath",
 					"GMScript", "GMShader", "GMFont", "GMTimeline",
-					"GMObject", "GMRoom", "GMAnimCurve"
+					"GMObject", "GMRoom", "GMAnimCurve", "GMSequence",
+					"GMParticleSystem"
 				: { // assets
 					var aceKind = "asset." + kind;
 					GmlAPI.gmlKind.set(name, aceKind);
