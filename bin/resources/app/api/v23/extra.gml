@@ -553,15 +553,15 @@ space_around?:flexpanel_justify_type
 space_evenly?:flexpanel_justify_type
 
 ??flexpanel_align_enum
-auto?#:flexpanel_align_type
-flex_start?#:flexpanel_align_type
-center?#:flexpanel_align_type
-flex_end?#:flexpanel_align_type
-stretch?#:flexpanel_align_type
-baseline?#:flexpanel_align_type
-space_between?#:flexpanel_align_type
-space_around?#:flexpanel_align_type
-space_evenly?#:flexpanel_align_type
+auto?:flexpanel_align_type
+flex_start?:flexpanel_align_type
+center?:flexpanel_align_type
+flex_end?:flexpanel_align_type
+stretch?:flexpanel_align_type
+baseline?:flexpanel_align_type
+space_between?:flexpanel_align_type
+space_around?:flexpanel_align_type
+space_evenly?:flexpanel_align_type
 
 ??flexpanel_display_enum
 flex?:flexpanel_display_type
